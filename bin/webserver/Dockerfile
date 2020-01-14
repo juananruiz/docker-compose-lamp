@@ -26,10 +26,6 @@ RUN apt-get -y update && \
 RUN pecl install xdebug-2.7.2 && \
     docker-php-ext-enable xdebug
 
-# Install redis
-RUN pecl install redis-4.0.1 && \
-    docker-php-ext-enable redis
-
 # Other PHP7 Extensions
 
 RUN docker-php-ext-install pdo_mysql && \
