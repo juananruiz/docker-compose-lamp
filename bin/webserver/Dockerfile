@@ -16,7 +16,8 @@ RUN apt-get -y update --fix-missing && \
 RUN apt-get -y update && \
     apt-get -y --no-install-recommends install nano wget dialog libsqlite3-dev libsqlite3-0 && \
     apt-get -y --no-install-recommends install mysql-client zlib1g-dev libzip-dev libicu-dev && \
-    apt-get -y --no-install-recommends install --fix-missing apt-utils build-essential git curl && \ 
+    apt-get -y --no-install-recommends install vim && \
+    apt-get -y --no-install-recommends install --fix-missing apt-utils build-essential git curl && \
     apt-get -y --no-install-recommends install --fix-missing libcurl3 libcurl3-dev zip openssl && \
     rm -rf /var/lib/apt/lists/* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -50,7 +51,7 @@ RUN apt-get -y update && \
     docker-php-ext-install -j$(nproc) gd
 
 # Enable apache modules
-RUN a2enmod rewrite headers
+RUN a2enmod rewrite headers ssl
 
 # Cleanup
 RUN rm -rf /usr/src/*
