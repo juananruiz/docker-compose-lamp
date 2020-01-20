@@ -16,6 +16,7 @@ services:
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
       - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
+      - ${CERT_DIR-../certificados}:/etc/apache2/ssl
   mysql:
     build:
       context: "./bin/${DATABASE}"
@@ -31,25 +32,3 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: 'sc-phpmyadmin'
-    links:
-      - mysql
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      PMA_USER: ${MYSQL_USER}
-      PMA_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    ports:
-      - '8080:80'
-    volumes: 
-      - /sessions
-  redis:
-    container_name: 'sc-redis'
-    image: redis:latest
-    ports:
-      - "${HOST_MACHINE_REDIS_PORT}:6379"
