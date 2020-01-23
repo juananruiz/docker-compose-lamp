@@ -49,5 +49,8 @@ RUN apt-get -y update && \
 # Enable apache modules
 RUN a2enmod rewrite headers ssl
 
+# Genera certificado SSL
+#RUN openssl req -x509 -newkey rsa:4086 -keyout snakeoil_key.pem -out snakeoil_cert.pem -days 3650 -nodes -sha256
+
 # Cleanup
 RUN rm -rf /usr/src/*
