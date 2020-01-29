@@ -28,7 +28,7 @@ Pon los dos ficheros que se generan en data/certs/
 ## mySQL
 Si al acceder a la intranet sale un error de SQL GROUP BY, ejecutar esta consulta:
 ```sql
-SET GLOBAL sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+SET GLOBAL sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERR´OR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 ```
 De todas formas ya la he agregado a config/mysql/my-custom.cnf
 
