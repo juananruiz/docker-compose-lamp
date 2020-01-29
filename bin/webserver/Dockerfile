@@ -17,6 +17,7 @@ RUN apt-get -y update && \
     apt-get -y --no-install-recommends install nano wget dialog libsqlite3-dev libsqlite3-0 && \
     apt-get -y --no-install-recommends install mysql-client zlib1g-dev libzip-dev libicu-dev && \
     apt-get -y --no-install-recommends install vim && \
+    apt-get -y --no-install-recommends install unzip && \
     apt-get -y --no-install-recommends install --fix-missing apt-utils build-essential git curl && \
     apt-get -y --no-install-recommends install --fix-missing libcurl3 libcurl3-dev zip openssl && \
     rm -rf /var/lib/apt/lists/* && \
